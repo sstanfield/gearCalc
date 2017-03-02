@@ -94,6 +94,11 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin, Wi
 		}
 	}
 
+	@override
+	Future<bool> didPopRoute() async {
+		print("XXXX Popped Route!");
+		return false;
+	}
 
 	@override
 	void initState() {

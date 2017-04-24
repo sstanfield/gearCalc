@@ -40,7 +40,7 @@ class _State extends State<ConfigScreen> {
 			onChanged: (String val) {
 			setState(() {
 				_appstate.diameterCm = val;
-				if (val.text.length > 0) {
+				if (val.length > 0) {
 					try {
 						_appstate.calc.wheelDiameterCm = double.parse(val);
 						_appstate.diameterIn = _appstate.diameterIn.copyWith(text: _appstate.calc.wheelDiameterInches.toStringAsFixed(2));
@@ -97,7 +97,7 @@ class _State extends State<ConfigScreen> {
 							onChanged: (String val) {
 								setState(() {
 									_appstate.sprockets[i] = val;
-									if (val.text.length > 0) {
+									if (val.length > 0) {
 										try {
 											_appstate.calc.setRearGear(i, int.parse(val));
 										} catch (ex) { }

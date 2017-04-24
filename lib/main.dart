@@ -3,9 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'screens/config.dart';
-//import 'screens/wheel.dart';
-//import 'screens/chainring.dart';
-//mport 'screens/cassette.dart';
 import 'screens/results.dart';
 import 'state.dart';
 

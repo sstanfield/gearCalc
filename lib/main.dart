@@ -123,7 +123,7 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin, Wi
 		// Here we take the value from the MyHomePage object that
 		// was created by the App.build method, and use it to set
 		// our appbar title.
-			title: new Text(config.title),
+			title: new Text("Gear Calc"), //config.title),
 			bottom: new TabBar(
 				controller: _tabController,
 				tabs: myTabs,

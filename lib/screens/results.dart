@@ -57,7 +57,7 @@ class _State extends State<ResultsScreen> {
 				if (_appstate.type == ResultsAs.GEAR_RATIO)
 					children.add(new Text("  ${_appstate.calc.gearRatio(i, c).toStringAsFixed(2)}  "));
 			}
-			cols.add(new Column(children: children));
+			cols.add(new Expanded(child: new Column(children: children)));
 		}
 		Row row = new Row(children: cols);
 		Row selRow;

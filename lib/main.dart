@@ -2,11 +2,11 @@ import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'screens/wheel.dart';
-import 'screens/chainring.dart';
-import 'screens/cassette.dart';
+import 'screens/config.dart';
+//import 'screens/wheel.dart';
+//import 'screens/chainring.dart';
+//mport 'screens/cassette.dart';
 import 'screens/results.dart';
-import 'calc.dart';
 import 'state.dart';
 
 void main() {
@@ -60,9 +60,10 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin, Wi
 	TabController _tabController;
 
 	final List<Tab> myTabs = <Tab>[
-		new Tab(text: 'Wheel'),
-		new Tab(text: 'Chainring'),
-		new Tab(text: 'Cassette'),
+		new Tab(text: 'Bike Config'),
+		//new Tab(text: 'Wheel'),
+		//new Tab(text: 'Chainring'),
+		//new Tab(text: 'Cassette'),
 		new Tab(text: 'Results'),
 	];
 
@@ -89,15 +90,9 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin, Wi
 	Future<Null> didChangeAppLifecycleState(AppLifecycleState state) async {
 		if (state == AppLifecycleState.paused) {
 			var json = _appstate.calc.toJson();
-			print("XXXX SAVE: ${json}");
+			print("XXXX SAVE: $json");
 			await (await _getLocalFile()).writeAsString(json);
 		}
-	}
-
-	@override
-	Future<bool> didPopRoute() async {
-		print("XXXX Popped Route!");
-		return false;
 	}
 
 	@override
@@ -107,7 +102,7 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin, Wi
 		_tabController = new TabController(vsync: this, length: myTabs.length);
 		_readState().then((String value) {
 			setState(() {
-				print("XXXX READ: ${value}");
+				print("XXXX READ: $value");
 				if (value.length > 0) {
 					_appstate.calc.loadJson(value);
 					_appstate.syncViews();
@@ -149,7 +144,8 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin, Wi
 			appBar: appBar,
 			body:new TabBarView(
 				controller: _tabController,
-				children: [new WheelScreen(_appstate), new ChainringScreen(_appstate), new CassetteScreen(_appstate), new ResultsScreen(_appstate)]
+				//children: [new WheelScreen(_appstate), new ChainringScreen(_appstate), new CassetteScreen(_appstate), new ResultsScreen(_appstate)]
+				children: [new ConfigScreen(_appstate), new ResultsScreen(_appstate)]
 			),
 			floatingActionButton: floatingActionButton, // This trailing comma tells the Dart formatter to use
 		// a style that looks nicer for build methods.
